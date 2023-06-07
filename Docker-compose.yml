@@ -1,0 +1,26 @@
+version: '3.8'
+services:
+  db1:
+    container_name: DB-mysql
+    image: mysql:latest
+    restart: always
+    environment:
+        MYSQL_ALLOW_EMPTY_PASSWORD: "no"
+        MYSQL_ROOT_PASSWORD: "secret"
+        MYSQL_DATABASE: "db_crud"
+        MYSQL_USER: "user"
+        MYSQL_PASSWORD: "oke123"
+    volumes:
+      - ./mysql:/docker-entrypoint-initdb.d
+    ports:
+        - "3306:3306"
+  db2:
+    container_name: postgres_demo
+    image: postgres:11-alpine3.17
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: secret
+    volumes:
+      - ./postgres:/docker-entrypoint-initdb.d
+    ports:
+      - "5432:5432"

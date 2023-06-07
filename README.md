@@ -1,0 +1,1 @@
+this script using mysqdump:10.19 & pg_dump:14.8 to execute. and im running on ubuntu:22.04.
